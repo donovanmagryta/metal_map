@@ -1,0 +1,59 @@
+<html>
+<body>
+<script>
+var dataa = [];
+var x = document.getElementById("demo");
+document.addEventListener ("keydown", function (zEvent) {
+   if (zEvent.ctrlKey  &&  zEvent.altKey  &&  zEvent.key === "E") { 
+dataa.push([lat]); console.log("lat LOGGED")
+dataa.push([long]); console.log("long LOGGED") 
+x.innerHTML = "detected";
+        
+    }
+});
+
+
+
+function getLocation() {
+  if (navigator.geolocation) {
+    //navigator.geolocation.getCurrentPosition(showPosition);
+     navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+lat = position.coords.latitude.toPrecision(3);
+long = position.coords.longitude.toPrecision(3);
+}
+
+function download_kml() {
+    var kml = "<?xml version="1.0" encoding="UTF-8"?> 
+<kml xmlns="http://earth.google.com/kml/2.0"> <Document>";
+    dataa.forEach {
+            kml += "\n";
+            kml += "<Placemark><Point><coordinates>"+lat+", "+long+", 0.</coordinates></Point></Placemark>";
+            kml += "\n";
+            
+  }
+kml += "</Document></kml>";
+};
+
+   console.log(kml);
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/kml;charset=utf-8,' + encodeURI(kml);
+    hiddenElement.target = '_blank';
+    filename = "map.kml";
+    hiddenElement.download = filename;
+    hiddenElement.click();
+}
+</script>
+<button onclick="getLocation()">Test GPS</button>
+<p id="demo"></p>
+<p id="info"><b>CTRL+ALT+E</b> marks current location.</p>
+<button title = "download map" onclick="download_kml()">⬇️</button></a>
+</body>
+</html>
