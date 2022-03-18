@@ -5,8 +5,8 @@ var dataa = [];
 var x = document.getElementById("demo");
 document.addEventListener ("keydown", function (zEvent) {
    if (zEvent.ctrlKey  &&  zEvent.altKey  &&  zEvent.key === "E") { 
-dataa.push([lat]); console.log("lat LOGGED")
-dataa.push([long]); console.log("long LOGGED") 
+dataa.push([lat]); console.log("lat LOGGED");
+dataa.push([long]); console.log("long LOGGED");
 x.innerHTML = "detected";
         
     }
@@ -31,15 +31,15 @@ long = position.coords.longitude.toPrecision(3);
 }
 
 function download_kml() {
-    var kml = "<?xml version="1.0" encoding="UTF-8"?> 
-<kml xmlns="http://earth.google.com/kml/2.0"> <Document>";
+    var kml = "\<\?xml version\=\"1.0\" encoding\=\"\UTF\-\8\"\?\> 
+<kml xmlns\=\"\http\:\/\/earth\.google\.com\/kml\/2\.\0\"\> \<\Document\>";
     dataa.forEach {
             kml += "\n";
-            kml += "<Placemark><Point><coordinates>"+lat+", "+long+", 0.</coordinates></Point></Placemark>";
+            kml += "\<Placemark\>\<Point\>\<coordinates\>"+lat+", "+long+", 0.\<\/coordinates\>\<\/Point\>\<\/Placemark\>";
             kml += "\n";
             
   }
-kml += "</Document></kml>";
+kml += "\<\/Document\>\<\/kml\>";
 };
 
    console.log(kml);
