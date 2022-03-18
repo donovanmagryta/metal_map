@@ -1,19 +1,13 @@
 <html>
 <body>
+<button onclick="getLocation()">Test GPS</button>
+<p id="demo"></p>
+<p id="info"><b>CTRL+ALT+E</b> marks current location.</p>
+<button title = "download map" onclick="download_kml()">⬇️</button></a>
+</body>
 <script>
 var dataa = [];
 var x = document.getElementById("demo");
-document.addEventListener ("keydown", function (zEvent) {
-   if (zEvent.ctrlKey  &&  zEvent.altKey  &&  zEvent.key === "E") { 
-dataa.push([lat]); console.log("lat LOGGED");
-dataa.push([long]); console.log("long LOGGED");
-x.innerHTML = "detected";
-        
-    }
-});
-
-
-
 function getLocation() {
   if (navigator.geolocation) {
     //navigator.geolocation.getCurrentPosition(showPosition);
@@ -29,6 +23,19 @@ function showPosition(position) {
 lat = position.coords.latitude.toPrecision(3);
 long = position.coords.longitude.toPrecision(3);
 }
+
+document.addEventListener ("keydown", function (zEvent) {
+   if (zEvent.ctrlKey  &&  zEvent.altKey  &&  zEvent.key === "E") { 
+dataa.push([lat]); console.log("lat LOGGED");
+dataa.push([long]); console.log("long LOGGED");
+x.innerHTML = "detected";
+        
+    }
+});
+
+
+
+
 
 function download_kml() {
     var kml = "\<\?xml version\=\"1.0\" encoding\=\"\UTF\-\8\"\?\> 
@@ -51,9 +58,5 @@ kml += "\<\/Document\>\<\/kml\>";
     hiddenElement.click();
 }
 </script>
-<button onclick="getLocation()">Test GPS</button>
-<p id="demo"></p>
-<p id="info"><b>CTRL+ALT+E</b> marks current location.</p>
-<button title = "download map" onclick="download_kml()">⬇️</button></a>
 </body>
 </html>
