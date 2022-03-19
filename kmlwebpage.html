@@ -18,7 +18,7 @@ var x = document.getElementById("demo");
     //getLocation();
      x.innerHTML = "detected";
     detectedlog += "\n";
-    detectedlog += "<Placemark><Point><coordinates>"+lat+", "+long+", 0</coordinates></Point></Placemark>";
+    detectedlog += "<Placemark><Point><coordinates>"+lat+", "+long+", "+alt+"</coordinates></Point></Placemark>";
     detectedlog += "\n";
 //dataa.push([lat]); 
      console.log("lat LOGGED");
@@ -47,6 +47,7 @@ function showPosition(position) {
 //long = position.coords.longitude.toPrecision(5);
   lat = position.coords.latitude;
   long = position.coords.longitude;
+  alt = position.coords.altitude;
 }
 
 
