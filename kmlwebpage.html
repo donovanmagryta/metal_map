@@ -18,7 +18,7 @@ var x = document.getElementById("demo");
     //getLocation();
      x.innerHTML = "detected";
     detectedlog += "\n";
-    detectedlog += "<Placemark><Point><coordinates>"+lat+", "+long+", 0.</coordinates></Point></Placemark>";
+    detectedlog += "<Placemark><Point><coordinates>"+lat+", "+long+", 0</coordinates></Point></Placemark>";
     detectedlog += "\n";
 //dataa.push([lat]); 
      console.log("lat LOGGED");
@@ -43,8 +43,10 @@ function getLocation() {
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
-lat = position.coords.latitude.toPrecision(5);
-long = position.coords.longitude.toPrecision(5);
+//lat = position.coords.latitude.toPrecision(5);
+//long = position.coords.longitude.toPrecision(5);
+  lat = position.coords.latitude;
+  long = position.coords.longitude;
 }
 
 
@@ -53,9 +55,9 @@ long = position.coords.longitude.toPrecision(5);
 
 
 function download_kml() {
-    var kml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?\><kml xmlns=\"http:\/\/earth.google.com/kml/2.0\"> <Document\>";
+    var kml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?\><kml xmlns=\"http:\/\/earth.google.com/kml/2.0\">";
     kml += detectedlog;
-    kml += "</Document></kml>";
+    kml += "</kml>";
 
 
    console.log(kml);
