@@ -12,6 +12,7 @@ var x = document.getElementById("demo");
   document.addEventListener("keydown", function (zEvent) {
    if (zEvent.ctrlKey  &&  zEvent.altKey  &&  zEvent.key === "E") {
     getLocation()
+     x.innerHTML = "detected";
     kml += "\n";
     kml += "<Placemark><Point><coordinates>"+lat+", "+long+", 0.</coordinates></Point></Placemark>";
     kml += "\n";
