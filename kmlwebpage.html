@@ -4,7 +4,7 @@
 <button onclick="getLocation()">Test GPS</button>
 <p id="demo"></p>
 <p id="info"><b>CTRL+ALT+E</b> marks current location.</p>
-<button title = "download map" onclick="download_kml()">⬇️</button>
+  <button title = "download map" onclick="download_kml()">⬇️</button></a>
 
 <script>
 var dataa = [];
@@ -13,9 +13,9 @@ var x = document.getElementById("demo");
    if (zEvent.ctrlKey  &&  zEvent.altKey  &&  zEvent.key === "E") {
     getLocation()
      x.innerHTML = "detected";
-    kml += "\n";
-    kml += "<Placemark><Point><coordinates>"+lat+", "+long+", 0.</coordinates></Point></Placemark>";
-    kml += "\n";
+    var detectedlog += "\n";
+    detectlog += "<Placemark><Point><coordinates>"+lat+", "+long+", 0.</coordinates></Point></Placemark>";
+    detectedlog += "\n";
 //dataa.push([lat]); 
      console.log("lat LOGGED");
 //dataa.push([long]); 
