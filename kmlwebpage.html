@@ -39,8 +39,8 @@ function getLocation() {
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
-lat = position.coords.latitude.toPrecision(3);
-long = position.coords.longitude.toPrecision(3);
+lat = position.coords.latitude.toPrecision(5);
+long = position.coords.longitude.toPrecision(5);
 }
 
 
