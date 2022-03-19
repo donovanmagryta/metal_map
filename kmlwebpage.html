@@ -3,11 +3,10 @@
 <body>
 <button onclick="getLocation()">Test GPS</button>
 <p id="demo"></p>
-<p id="info"><b>CTRL+ALT+E</b> marks current location.</p>
+<p id="info"><b>!</b> marks current location.</p>
   <button title = "download map" onclick="download_kml()">⬇️</button>
 
 <script>
-var dataa = [];
 let detectedlog = "";
 var x = document.getElementById("demo");
   document.addEventListener("keydown", function (zEvent) {
