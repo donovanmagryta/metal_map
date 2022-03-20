@@ -14,7 +14,7 @@ font-size: 45px;
 <button onclick="addMarker()">Add Marker Here</button>
 <p id="info"></p>
   <p><b>Typing an exclamation point marks the current location.<br>You can view kml files on apps such as:   </b><a href="https://play.google.com/store/apps/details?id=app.tracklia&gl=US">Tracklia for Android</a><b> or sites such as:   </b><a href="https://ivanrublev.me/kml/">https://ivanrublev.me/kml/</a></p>
-  <button title = "download map" onclick="download_kml()">download kml map file</button>
+  <button title = "download map" onclick="downloadKml()">download kml map file</button>
 
 <script>
 let detectedlog = "";
@@ -50,7 +50,7 @@ function showPosition(position) {
   alt = position.coords.altitude;
 }
 
-function download_kml() {
+function downloadKml() {
     var kml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?\><kml xmlns=\"http:\/\/www.opengis.net\/kml\/2.2\">";
     kml += detectedlog;
     kml += "</kml>";
