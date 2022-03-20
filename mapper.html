@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-size: 30px;
+            }
+            button {
+                font-size: 45px;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="getLocation()">Enable GPS</button>
+        <button onclick="addMarker()">Add Marker Here</button>
+        <p id="info"></p>
+        <p>
+            <b>
+                Typing an exclamation point marks the current location.<br>
+                You can view kml files on apps such as:
+            </b>
+            <a href="https://play.google.com/store/apps/details?id=app.tracklia&gl=US">Tracklia for Android</a>
+            <b> or sites such as: </b>
+            <a href="https://ivanrublev.me/kml/">https://ivanrublev.me/kml/</a>
+        </p>
+        <button title="download map" onclick="downloadKml()">download map file</button>
+
+        <script>
+            let detectedlog = "";
+            var x = document.getElementById("info");
+            document.addEventListener("keydown", function (zEvent) {
+                if (zEvent.key === "!") {
+                    addMarker();
+                }
+            });
+
+            function addMarker() {
+                x.innerHTML = "detected";
+                detectedlog += "\n";
+                detectedlog += "<Placemark><name>detected</name><description>detected</description><Point><coordinates>" + long + ", " + lat + ",0</coordinates></Point></Placemark>";
+                detectedlog += "\n";
+                x.innerHTML = "detected";
+            }
+
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.watchPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+                //lat = position.coords.latitude.toPrecision(5);
+                lat = position.coords.latitude;
+                long = position.coords.longitude;
+            }
+
+            function downloadKml() {
+                var kml = '<?xml version="1.0" encoding="UTF-8"?\><kml xmlns="http:\/\/www.opengis.net\/kml\/2.2">';
+                kml += detectedlog;
+                kml += "</kml>";
+                var hiddenElement = document.createElement("a");
+                hiddenElement.href = "data:text/kml;charset=utf-8," + encodeURI(kml);
+                hiddenElement.target = "_blank";
+                filename = "map.kml";
+                hiddenElement.download = filename;
+                hiddenElement.click();
+            }
+        </script>
+    </body>
+</html>
