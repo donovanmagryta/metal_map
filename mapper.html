@@ -22,7 +22,7 @@
         <p id="info"></p>
         <p>
             <b>
-                Typing an exclamation point marks the current location.<br>
+                CTRL + X Adds Marker<br>
                 You can view generated map files on apps such as:
             </b>
             <a href="https://play.google.com/store/apps/details?id=app.tracklia&gl=US">Tracklia for Android</a>
@@ -34,7 +34,7 @@
             let detectedlog = "";
             var x = document.getElementById("info");
             document.addEventListener("keydown", function (zEvent) {
-                if (zEvent.key === "!") {
+                if (zEvent.ctrlKey  &&  zEvent.key === "X") {
                     addMarker();
                 }
             });
