@@ -63,9 +63,9 @@
             }
 
             function downloadKml() {
-                var kml = '<?xml version="1.0" encoding="UTF-8"?\><kml xmlns="http:\/\/www.opengis.net\/kml\/2.2">';
+                var kml = '<?xml version="1.0" encoding="UTF-8"?\><kml xmlns="http:\/\/www.opengis.net\/kml\/2.2"><Document>';
                 kml += detectedlog;
-                kml += "</kml>";
+                kml += "</Document></kml>";
                 var hiddenElement = document.createElement("a");
                 hiddenElement.href = "data:text/kml;charset=utf-8," + encodeURI(kml);
                 hiddenElement.target = "_blank";
