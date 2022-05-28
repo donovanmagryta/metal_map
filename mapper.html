@@ -23,7 +23,7 @@
         <button id="steps"></button>
         <p>
             <b>
-                CTRL+X adds a marker.<br>
+                X adds a marker.<br>
                 You can view generated maps on most kml viewer apps e.g.,
             </b>
             <a href="https://play.google.com/store/apps/details?id=app.tracklia&gl=US">Tracklia for Android</a>
@@ -37,14 +37,14 @@
             var x = document.getElementById("info");
             var z = document.getElementbyId("steps");
             document.addEventListener("keydown", function (zEvent) {
-                if ((zEvent.ctrlKey)  &&  (zEvent.key === "x")) {
+                if (zEvent.key === "x") {
                     addMarker();
                 }
-                if ((zEvent.altKey) && (zEvent.key)) {
+                if (typeof zEvent.key === "number") {    
                 stepCount();
                 }
-               if ((zEvent.altKey)  &&  (zEvent.key === "z")) {
-                stepEnd();
+               if (zEvent.key === "z")) {
+                  stepEnd();
                 }
             });
 
