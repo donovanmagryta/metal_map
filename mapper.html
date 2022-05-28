@@ -31,11 +31,18 @@
         </p>
 
         <script>
+            var numbar = "";
             let detectedlog = "";
             var x = document.getElementById("info");
             document.addEventListener("keydown", function (zEvent) {
                 if (zEvent.ctrlKey  &&  zEvent.key === "x") {
                     addMarker();
+                }
+                if ((zEvent.ctrlKey) && (event.key)) {
+                stepCount();
+                }
+               if (zEvent.ctrlKey  &&  zEvent.key === "z") {
+                stepEnd();
                 }
             });
 
@@ -45,6 +52,19 @@
                 detectedlog += "<Placemark><name>detected</name><description>detected</description><Point><coordinates>" + long + ", " + lat + ",0</coordinates></Point></Placemark>";
                 detectedlog += "\n";
                 x.innerHTML = "Added map marker at " + long + " , " + lat + "";
+            }
+            
+            function stepEnd() {
+                  var step = ("steps" + numbar);
+//if ctrl + digit is pressed, add it to string using +=. When ctrl + key Z is called, set string as number and clear string.
+var stepind = document.getElementsByClassName('steps');
+stepind[0].innerHTML = step; 
+                numbar = "";
+            }
+            
+            function stepCount() {
+                var digit = zEvent.key;
+                numbar += digit;
             }
 
             function getLocation() {
