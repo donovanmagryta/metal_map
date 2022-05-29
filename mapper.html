@@ -33,6 +33,7 @@
 
         <script>
             var numbar = "";
+            var numm = "";
             let detectedlog = "";
             var x = document.getElementById("info");
             var z = document.getElementById("steps");
@@ -57,11 +58,8 @@
             }
             
             function stepEnd() {
-                  
-//if ctrl + digit is pressed, add it to string using +=. When ctrl + key Z is called, set string as number and clear string.
-
-z.innerHTML = "Pixel Step Count: " + numbar + ".";
-                numbar = "";
+                z.innerHTML = "Pixel Step Count: " + numbar + ".";
+                numm = "";
             }
             
             function stepCount() {
