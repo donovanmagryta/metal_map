@@ -41,11 +41,15 @@
                 if (zEvent.key === "x") {
                     addMarker();
                 }
-                if (typeof zEvent.key === "number") {    
-                stepCount();
-                }
+                //if (typeof zEvent.key === "number") {    
+               //stepCount();
+               // }
                if (zEvent.key === "z") {
                   stepEnd();
+                }
+                
+                if (zEvent.key === "y") {
+                showCount();
                 }
             });
 
@@ -65,6 +69,11 @@
             function stepCount() {
                 var digit = zEvent.key;
                 numbar += digit;
+            }
+            
+             function showCount() {
+                 z.innerHTML = numm;
+                numm = numm + 1;
             }
 
             function getLocation() {
