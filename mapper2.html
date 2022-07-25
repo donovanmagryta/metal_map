@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
         <style>
             body {
                 font-size: 30px;
@@ -18,7 +20,9 @@
     </head>
     <body>
     <div id="map" style="height: 500px"></div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
         <button onclick="getLocation()">Enable GPS</button>
         <button onclick="addMarker()">Add Marker</button>
         <button title="download map" onclick="downloadKml()">Download Map</button>
@@ -93,13 +97,17 @@
                 //lat = position.coords.latitude.toPrecision(5);
                 lat = position.coords.latitude;
                 long = position.coords.longitude;
+                var map = L.map('map').setView([lat, long], 13);
             }
             
             
             
             function getMap(latitude, longitude) {
   const map = L.map("map").setView([lat, long], 5);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map);
   L.marker([lat, long]).addTo(map);
 }
 
