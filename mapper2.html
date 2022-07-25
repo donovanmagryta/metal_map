@@ -97,19 +97,16 @@
                 //lat = position.coords.latitude.toPrecision(5);
                 lat = position.coords.latitude;
                 long = position.coords.longitude;
-                //var map = L.map('map').setView([lat, long], 13);
+                getMap(lat, long);
             }
             
             
             
-            function getMap(latitude, longitude) {
-  const map = L.map("map").setView([lat, long], 5);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
-  //L.marker([lat, long]).addTo(map);
-}
+           function getMap(latitude, longitude) {
+    const map = L.map("map").setView([latitude, longitude], 5);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+    L.marker([latitude, longitude]).addTo(map);
+  }
 
             function downloadKml() {
                 var kml = '<?xml version="1.0" encoding="UTF-8"?\><kml xmlns="http:\/\/www.opengis.net\/kml\/2.2"><Document>';
