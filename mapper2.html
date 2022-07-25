@@ -97,7 +97,7 @@
                 //lat = position.coords.latitude.toPrecision(5);
                 lat = position.coords.latitude;
                 long = position.coords.longitude;
-                var map = L.map('map').setView([lat, long], 13);
+                //var map = L.map('map').setView([lat, long], 13);
             }
             
             
@@ -108,7 +108,7 @@
     maxZoom: 19,
     attribution: '© OpenStreetMap'
 }).addTo(map);
-  L.marker([lat, long]).addTo(map);
+  //L.marker([lat, long]).addTo(map);
 }
 
             function downloadKml() {
