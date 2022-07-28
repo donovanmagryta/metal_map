@@ -62,7 +62,9 @@
             });
 
             function addMarker() {
-           L.marker([lat, long]).addTo(map);
+          L.marker([lat, long]).addTo(map)
+    .bindPopup('X marks the spot.')
+    .openPopup();
                 x.innerHTML = "detected";
                 detectedlog += "\n";
                 detectedlog += "<Placemark><name>detected</name><description>detected</description><Point><coordinates>" + long + ", " + lat + ",0</coordinates></Point></Placemark>";
@@ -104,8 +106,11 @@
             
             
            function getMap(lat, long) {
-    const map = L.map("map").setView([lat, long], 5);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+    var map = L.map('map').setView([lat, long], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
     
   }
 
